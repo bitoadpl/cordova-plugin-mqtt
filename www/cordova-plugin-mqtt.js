@@ -1,3 +1,5 @@
+var MQTT = { onPublish: function(e) {console.log("onPublish undefined");} };
+
 var exec = require('cordova/exec'), cordova = require('cordova'),
 channel = require('cordova/channel'),
     utils = require('cordova/utils');
@@ -47,9 +49,7 @@ channel = require('cordova/channel'),
                     break;
                 case "onPublish":
                     delete cd['call'];
-                    if (typeof(onPublish) == "function") {
-                        onPublish(cd);
-                    }
+                    MQTT.onPublish(cd);
                     cordova.fireDocumentEvent(cd.topic,cd);
                     break;
                 default:
