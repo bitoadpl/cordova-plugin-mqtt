@@ -46,8 +46,8 @@ channel = require('cordova/channel'),
                     cordova.fireDocumentEvent("failure",cd);
                     break;
                 case "onPublish":
-                    console.log("onPublish");
                     delete cd['call'];
+                    this.onPublish(cd);
                     cordova.fireDocumentEvent(cd.topic,cd);
                     break;
                 default:
