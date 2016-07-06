@@ -1,4 +1,3 @@
-var MQTT = { onPublish: function(e) {console.log("onPublish undefined");} };
 
 var exec = require('cordova/exec'), cordova = require('cordova'),
 channel = require('cordova/channel'),
@@ -49,7 +48,8 @@ channel = require('cordova/channel'),
                     break;
                 case "onPublish":
                     delete cd['call'];
-                    MQTT.onPublish(cd);
+                    console.log(cd);
+                    exports.lastmessage = cd;
                     cordova.fireDocumentEvent(cd.topic,cd);
                     break;
                 default:
@@ -143,4 +143,3 @@ channel = require('cordova/channel'),
         }, "CordovaMqTTPlugin", "disconnect", []);
     } 
 
-module.exports = MQTT;
