@@ -48,8 +48,9 @@ channel = require('cordova/channel'),
                     break;
                 case "onPublish":
                     delete cd['call'];
-                    console.log(cd);
-                    exports.lastmessage = cd;
+//                    console.log(cd);
+//                    exports.lastmessage = cd;
+                    args.onPublish(cd);
                     cordova.fireDocumentEvent(cd.topic,cd);
                     break;
                 default:
