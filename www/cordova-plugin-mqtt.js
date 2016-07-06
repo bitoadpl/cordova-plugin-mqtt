@@ -142,3 +142,5 @@ channel = require('cordova/channel'),
             args.error(e);
         }, "CordovaMqTTPlugin", "disconnect", []);
     } 
+
+module.exports = MQTT;
